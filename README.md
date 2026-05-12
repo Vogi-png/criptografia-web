@@ -31,7 +31,7 @@ Após baixar os arquivos do repositório ou clonar o projeto:
    - Menu superior → **Terminal > New Terminal**
 3. Verifique se você está na pasta onde reside o arquivo `.csproj`.
 4. Digite o seguinte comando para restaurar as dependências e pacotes:
-
+   
 ```bash
 dotnet restore
 ```
@@ -41,6 +41,10 @@ dotnet restore
 ## 💻 Como Compilar e Rodar o Programa
 
 Com o terminal aberto na pasta do projeto, basta digitar:
+
+```bash
+cd Criptografia
+```
 
 ```bash
 dotnet run
