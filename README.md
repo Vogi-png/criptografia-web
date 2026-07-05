@@ -36,12 +36,14 @@ O repositório está organizado da seguinte forma:
 ```txt
 criptografia-web/
 ├── backend/
-│   ├── Controllers/
-│   ├── Services/
-│   ├── Program.cs
-│   ├── Criptografia.csproj
-│   └── appsettings.json
-│
+│   ├── criptografia/
+│       ├── Controllers/
+│       ├── Services/
+│       ├── Program.cs
+│       ├── Criptografia.csproj
+│       └── appsettings.json
+│   ├── testes/
+│       ├── Program.cs
 ├── frontend/
 │   ├── index.html
 │   └── assets/
@@ -100,7 +102,7 @@ Após baixar os arquivos do repositório ou clonar o projeto:
 3. Entre na pasta do backend:
 
 ```bash
-cd backend
+cd backend/criptografia
 ```
 
 4. Restaure as dependências do projeto:
@@ -130,6 +132,29 @@ Também é possível compilar o projeto pela solução, usando o comando abaixo 
 ```bash
 dotnet build criptografia.sln
 ```
+
+### 🧪 Testes do Back-End
+
+O backend agora inclui um projeto de testes em console para validar o algoritmo de Feistel. Ele executa cenários de efeito avalanche e um teste de round-trip de descriptografia.
+
+Para rodar os testes, use:
+
+```bash
+cd backend/testes
+dotnet run
+```
+
+Ou, a partir da raiz do repositório:
+
+```bash
+dotnet run --project backend/testes
+```
+
+Durante a execução, o programa mostra:
+
+- Os cenários de alteração de um bit e quantos bits diferentes aparecem nas saídas;
+- A entrada original, o texto cifrado e o texto decifrado;
+- Se o processo de descriptografia foi bem-sucedida.
 
 ---
 
