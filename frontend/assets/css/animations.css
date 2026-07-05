@@ -1,0 +1,52 @@
+/* =============================================================
+   ANIMATIONS — Keyframes e regras de movimento
+   ============================================================= */
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 currentColor; }
+  50%       { box-shadow: 0 0 0 4px transparent; }
+}
+
+@keyframes scan-vertical {
+  0%        { transform: translateY(0);     opacity: 0; }
+  10%, 90%  { opacity: 1; }
+  50%       { transform: translateY(120px); }
+  100%      { transform: translateY(0);     opacity: 0; }
+}
+
+@keyframes toast-in {
+  from { transform: translateY(20px) scale(0.95); opacity: 0; }
+  to   { transform: translateY(0) scale(1);       opacity: 1; }
+}
+
+@keyframes toast-out {
+  to { transform: translateX(40px); opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float-glow {
+  0%, 100% { opacity: 0.2; }
+  50%      { opacity: 0.4; }
+}
+
+/* Entrada suave dos elementos ao carregar a página */
+.topbar          { animation: fade-in 600ms var(--ease-out) both; }
+.panel--primary  { animation: fade-in 800ms 100ms var(--ease-out) both; }
+.panel--secondary{ animation: fade-in 800ms 200ms var(--ease-out) both; }
+.footer          { animation: fade-in 600ms 300ms var(--ease-out) both; }
+
+.bg-glow         { animation: float-glow 8s ease-in-out infinite; }
+.bg-glow--cyan   { animation-delay: 4s; }
+
+/* Respeita preferência de redução de movimento (acessibilidade) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

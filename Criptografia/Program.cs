@@ -2,23 +2,33 @@ using Criptografia.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Adiciona suporte a Controllers (Necessário para a API funcionar)
 builder.Services.AddControllers();
-
-// Configura o Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .WithExposedHeaders("Content-Disposition"));
+});
+
 var app = builder.Build();
 
-// Ativa o Swagger para testes
+// CORS precisa vir PRIMEIRO — antes do Swagger e dos Controllers.
+// Sem isso, o navegador bloqueia as respostas por política de segurança.
+app.UseCors("AllowFrontend");
+
+// Swagger fica depois do CORS
 app.UseSwagger();
 app.UseSwaggerUI();
 
-// Redirecionamento HTTPS (opcional para local, mas bom ter)
-app.UseHttpsRedirection();
+// UseHttpsRedirection() foi removido pois causava problemas locais:
+// o backend redirecionava HTTP → HTTPS, e o CORS não era aplicado
+// na resposta de redirecionamento, causando bloqueio no navegador.
 
-// Importante: Mapeia os Controllers
 app.MapControllers();
 
 app.Run();

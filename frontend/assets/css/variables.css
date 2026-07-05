@@ -1,0 +1,112 @@
+/* =============================================================
+   VARIABLES — Design Tokens
+   -----------------------------------------------------------
+   "Design tokens" são variáveis que representam decisões de
+   design (cores, fontes, espaçamentos, raios...). Centralizar
+   tudo aqui:
+     1. Garante CONSISTÊNCIA  — todo o app usa as mesmas medidas
+     2. Facilita MANUTENÇÃO   — mudar uma cor afeta o app inteiro
+     3. Permite TEMAS         — reatribuir variáveis muda o visual
+
+   Tema deste projeto: "Atelier Criptográfico"
+   • Dark mode como base
+   • Acentos quentes em duas variações:
+       - Âmbar dourado → ação de proteger (criptografar)
+       - Ciano frio    → ação de revelar (descriptografar)
+   ============================================================= */
+
+:root {
+  /* ---------- Paleta base ---------- */
+  --color-bg:           #0a0a0f;
+  --color-bg-elevated:  #11111a;
+  --color-surface:      #15151f;
+  --color-surface-2:    #1c1c28;
+  --color-surface-3:    #232333;
+
+  /* ---------- Bordas (em tom quente, não cinza puro) ---------- */
+  --color-border:        rgba(255, 245, 230, 0.06);
+  --color-border-strong: rgba(255, 245, 230, 0.12);
+  --color-border-glow:   rgba(255, 245, 230, 0.20);
+
+  /* ---------- Tons de texto ---------- */
+  --color-text:           #f2efe8;
+  --color-text-soft:      #b8b3a6;
+  --color-text-muted:     #7a7669;
+  --color-text-whisper:   #45433c;
+
+  /* ---------- Acentos por modo ---------- */
+  --color-accent-encrypt:        #ffb547;
+  --color-accent-encrypt-soft:   rgba(255, 181, 71, 0.15);
+  --color-accent-encrypt-faint:  rgba(255, 181, 71, 0.06);
+  --color-accent-encrypt-glow:   rgba(255, 181, 71, 0.40);
+
+  --color-accent-decrypt:        #5eead4;
+  --color-accent-decrypt-soft:   rgba(94, 234, 212, 0.15);
+  --color-accent-decrypt-faint:  rgba(94, 234, 212, 0.06);
+  --color-accent-decrypt-glow:   rgba(94, 234, 212, 0.40);
+
+  /* Acentos dinâmicos — apontam para encrypt por padrão,
+     são sobrescritos quando data-mode='decrypt' */
+  --color-accent:        var(--color-accent-encrypt);
+  --color-accent-soft:   var(--color-accent-encrypt-soft);
+  --color-accent-faint:  var(--color-accent-encrypt-faint);
+  --color-accent-glow:   var(--color-accent-encrypt-glow);
+
+  /* ---------- Estados semânticos ---------- */
+  --color-success: #5eead4;
+  --color-danger:  #f87171;
+  --color-warning: #ffb547;
+
+  /* ---------- Tipografia ---------- */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-body:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.8125rem;
+  --fs-base: 0.9375rem;
+  --fs-md:   1.0625rem;
+  --fs-lg:   1.375rem;
+  --fs-xl:   1.75rem;
+  --fs-2xl:  2.5rem;
+
+  /* ---------- Escala de espaçamento (grid de 4 pixels) ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --space-8: 3rem;
+
+  /* ---------- Raios de borda ---------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* ---------- Sombras e glows ---------- */
+  --glow-encrypt:    0 0 60px -10px rgba(255, 181, 71, 0.45);
+  --glow-decrypt:    0 0 60px -10px rgba(94, 234, 212, 0.45);
+  --glow-current:    0 0 60px -10px rgba(255, 181, 71, 0.45);
+  --shadow-elevated: 0 20px 60px -20px rgba(0, 0, 0, 0.6),
+                     0 1px 0 rgba(255, 255, 255, 0.04) inset;
+
+  /* ---------- Curvas de easing e durações ---------- */
+  --ease:     cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast:   140ms var(--ease);
+  --t-base:   240ms var(--ease);
+  --t-slow:   480ms var(--ease-out);
+}
+
+/* Tema "decrypt": quando o JS muda data-mode no <html>,
+   estas variáveis sobrescrevem as do :root. */
+:root[data-mode='decrypt'] {
+  --color-accent:        var(--color-accent-decrypt);
+  --color-accent-soft:   var(--color-accent-decrypt-soft);
+  --color-accent-faint:  var(--color-accent-decrypt-faint);
+  --color-accent-glow:   var(--color-accent-decrypt-glow);
+  --glow-current:        var(--glow-decrypt);
+}
