@@ -35,6 +35,9 @@ app.UseCors("AllowFrontend");
 // Redirecionamento HTTPS (opcional para local, mas bom ter)
 app.UseHttpsRedirection();
 
+// Endpoint simples de saúde para o frontend verificar se a API está viva.
+app.MapGet("/health", () => Results.Ok(new { status = "ok" }));
+
 // Importante: Mapeia os Controllers
 app.MapControllers();
 

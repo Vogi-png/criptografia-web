@@ -30,11 +30,9 @@ const API = {
    */
   async checkHealth() {
     try {
-      // Tenta acessar o Swagger — qualquer status (200, 404, etc)
-      // significa que o servidor está vivo.
-      const url = CONFIG.API_BASE + '/swagger/index.html';
-      await fetch(url, { method: 'GET' });
-      return true;
+      const url = CONFIG.API_BASE + '/health';
+      const response = await fetch(url, { method: 'GET' });
+      return response.ok;
     } catch (err) {
       // Erro de rede / CORS / servidor desligado → offline
       return false;
