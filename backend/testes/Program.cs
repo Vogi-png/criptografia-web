@@ -59,7 +59,7 @@ for (int i = 0; i < cenarios.Length; i++) {
 Console.WriteLine("Descriptografia:");
 
 // Texto original sem criptografia.
-Console.Write("Digite o texto a ser testado:");
+Console.Write("Digite o texto a ser testado: ");
 var textoTeste = Console.ReadLine()!;
 var original = System.Text.Encoding.UTF8.GetBytes(textoTeste);
 
