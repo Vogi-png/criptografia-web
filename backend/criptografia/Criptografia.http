@@ -1,0 +1,6 @@
+@Criptografia_HostAddress = http://localhost:5073
+
+GET {{Criptografia_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
