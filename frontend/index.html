@@ -151,9 +151,8 @@
               role="radio"
               aria-checked="true"
             >
-              <span class="mode-switch__flag">flag = false</span>
               <span class="mode-switch__label">Criptografar</span>
-              <span class="mode-switch__hint">transformar em código secreto</span>
+              <span class="mode-switch__hint">Transformar em código secreto</span>
             </button>
 
             <button
@@ -164,9 +163,8 @@
               role="radio"
               aria-checked="false"
             >
-              <span class="mode-switch__flag">flag = true</span>
               <span class="mode-switch__label">Descriptografar</span>
-              <span class="mode-switch__hint">recuperar conteúdo original</span>
+              <span class="mode-switch__hint">Recuperar conteúdo original</span>
             </button>
           </div>
         </div>
@@ -214,7 +212,7 @@
           <!-- Rodapé do campo: contador de caracteres + mínimo -->
           <div class="key-field__footer">
             <span class="key-field__counter" id="keyMeta">0 caracteres</span>
-            <span class="key-field__min">mínimo: 4 caracteres</span>
+            <span class="key-field__min">Mínimo: 4 caracteres</span>
           </div>
 
           <!-- Callout amarelo destacando a importância de guardar a senha. -->
@@ -303,8 +301,10 @@
           <!-- Estado: processando -->
           <div class="dropzone__loading" id="dropzoneLoading" hidden>
             <div class="scanner">
-              <div class="scanner__line"></div>
-              <div class="scanner__grid"></div>
+              <div class="scanner__content">
+                <div class="scanner__line"></div>
+                <div class="scanner__grid"></div>
+              </div>
             </div>
             <p class="dropzone__title">Processando…</p>
             <p class="dropzone__meta" id="loadingStage">Preparando os blocos</p>
@@ -352,7 +352,7 @@
         </div>
         <div class="metrics__item">
           <dt>Rodadas</dt>
-          <dd class="mono">3</dd>
+          <dd class="mono">32</dd>
         </div>
         <div class="metrics__item">
           <dt>Operação</dt>
@@ -375,30 +375,16 @@
           <g class="feistel-round">
             <rect x="30" y="25" width="20" height="14" rx="2" />
             <rect x="150" y="25" width="20" height="14" rx="2" />
-            <path d="M50 32 L130 50 L150 50" stroke="currentColor" stroke-width="0.5" fill="none" />
-            <circle cx="130" cy="50" r="3" fill="none" stroke="currentColor" stroke-width="0.5" />
-            <text x="130" y="52" text-anchor="middle" font-size="4">⊕</text>
+            <path d="M50 32 L100 32 L150 32" stroke="currentColor" stroke-width="0.5" fill="none" />
+            <circle cx="100" cy="32" r="3" fill="none" stroke="currentColor" stroke-width="0.5" />
+            <text x="100" y="34" text-anchor="middle" font-size="4">⊕</text>
+            <path d="M100 35 L100 90" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6" />
+            <path d="M100 90 L70 90 L50 90" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6" />
           </g>
-          <g class="feistel-round">
-            <rect x="30" y="60" width="20" height="14" rx="2" />
-            <rect x="150" y="60" width="20" height="14" rx="2" />
-            <path d="M150 67 L70 85 L50 85" stroke="currentColor" stroke-width="0.5" fill="none" />
-            <circle cx="70" cy="85" r="3" fill="none" stroke="currentColor" stroke-width="0.5" />
-            <text x="70" y="87" text-anchor="middle" font-size="4">⊕</text>
-          </g>
-          <g class="feistel-round">
-            <rect x="30" y="95" width="20" height="14" rx="2" />
-            <rect x="150" y="95" width="20" height="14" rx="2" />
-            <path d="M50 102 L130 120 L150 120" stroke="currentColor" stroke-width="0.5" fill="none" />
-            <circle cx="130" cy="120" r="3" fill="none" stroke="currentColor" stroke-width="0.5" />
-            <text x="130" y="122" text-anchor="middle" font-size="4">⊕</text>
-          </g>
-          <text x="40" y="18" text-anchor="middle" font-size="5" font-family="JetBrains Mono" opacity="0.6">L0</text>
-          <text x="160" y="18" text-anchor="middle" font-size="5" font-family="JetBrains Mono" opacity="0.6">R0</text>
         </svg>
         <p class="feistel-viz__note">
           O arquivo é dividido em blocos de 4 bytes, e cada um passa por
-          3 rodadas de substituição e permutação usando sua senha.
+          32 rodadas de substituição e permutação usando sua senha.
         </p>
       </div>
 
@@ -423,7 +409,7 @@
        ========================================================= -->
   <footer class="footer">
     <span>Segurança de Sistemas · Cipher Workshop</span>
-    <span class="mono">feistel · sbox · permutação</span>
+    <span class="mono">Feistel · Sbox · Permutação</span>
   </footer>
 
   <!-- Container para notificações temporárias.

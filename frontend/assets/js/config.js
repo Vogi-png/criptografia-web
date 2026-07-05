@@ -46,9 +46,6 @@ const CONFIG = {
   STAGES: [
     'Lendo o arquivo',
     'Preparando a chave',
-    'Aplicando S-Box · rodada 1 de 3',
-    'Permutando bits · rodada 2 de 3',
-    'Finalizando · rodada 3 de 3',
     'Empacotando o resultado',
   ],
 };

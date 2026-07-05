@@ -57,6 +57,16 @@ body {
   right: -150px;
 }
 
+html[data-mode='encrypt'] .bg-glow--amber,
+html[data-mode='encrypt'] .bg-glow--cyan {
+  background: radial-gradient(circle, var(--color-accent-encrypt) 0%, transparent 60%);
+}
+
+html[data-mode='decrypt'] .bg-glow--amber,
+html[data-mode='decrypt'] .bg-glow--cyan {
+  background: radial-gradient(circle, var(--color-accent-decrypt) 0%, transparent 60%);
+}
+
 /* -------------------- Topbar -------------------- */
 .topbar {
   display: flex;

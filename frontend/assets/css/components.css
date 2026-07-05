@@ -293,6 +293,7 @@
   position: relative;
   display: grid;
   place-items: center;
+  row-gap: var(--space-5);
   min-height: 260px;
   border: 1.5px dashed var(--color-border-strong);
   border-radius: var(--radius-lg);
@@ -347,7 +348,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-4);
   width: 100%;
   max-width: 420px;
 }
@@ -458,6 +459,12 @@
 
 /* -------------------- Scanner -------------------- */
 .scanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scanner__content {
   position: relative;
   width: 120px;
   height: 120px;
@@ -465,6 +472,10 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--color-accent-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
 }
 
 .scanner__grid {
